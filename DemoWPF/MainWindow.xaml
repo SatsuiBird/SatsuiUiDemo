@@ -1,0 +1,64 @@
+﻿<!-- 
+    Don't forget to change the class of the window to SatsuiWindow
+    Also, You need to change it in the code behind of the view
+    Then add the Style SatsuiWindow to the window as dynamic resource
+-->
+<ctrls:SatsuiWindow x:Class="DemoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrls="clr-namespace:SatsuiUi.Controls;assembly=SatsuiUi"
+        xmlns:local="clr-namespace:DemoWPF"
+        mc:Ignorable="d"
+        Title="SatsuiUi - Demo - WPF" Height="350" Width="525" WindowStartupLocation="CenterScreen" Style="{DynamicResource SatsuiWindow}">
+    <!--
+        Using DialogClient as the main container will show the background effect
+        and affect the color of TextBlock controls
+    -->
+    <ctrls:DialogClient>
+        <Grid Margin="10,10,10,7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Skin selection -->
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Theme : "/>
+            <ctrls:HintComboBox x:Name="cmbSkins"
+                                Grid.Row="0" Grid.Column="1"  Margin="5,0,5,5"
+                                SelectionChanged="cmbSkins_SelectionChanged"/>
+
+            <!-- Small example, see DemoMVVM for more examples -->
+            <ctrls:HintGroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" Padding="0"
+                                HeaderText="Small example" HeaderImage="/DemoWPF;component/Resources/Images/x16-right-arrow.png">
+                <ScrollViewer VerticalScrollBarVisibility="auto">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" Style="{DynamicResource ContentContainer}">
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <Image Width="16" Height="16" Margin="0,0,10,0" Source="/DemoWPF;component/Resources/Images/x16-warning.png"/>
+                                <TextBlock Text="See "/>
+                                <TextBlock Text="DemoMVVM " FontWeight="Bold"/>
+                                <TextBlock Text="for more controls examples !"/>
+                            </StackPanel>
+                        </ContentControl>
+                        <ctrls:HintTextBox x:Name="txtInput" 
+                                           Grid.Row="1" Margin="0,10,0,0" MinHeight="30" Hint="Enter some text"/>
+                        <Button x:Name="btnShowInput" 
+                                Grid.Row="2" Margin="0,10,0,0" Content="Click me !"
+                                Click="btnShowInput_Click"/>
+                    </Grid>
+                </ScrollViewer>
+            </ctrls:HintGroupBox>
+        </Grid>
+    </ctrls:DialogClient>
+</ctrls:SatsuiWindow>

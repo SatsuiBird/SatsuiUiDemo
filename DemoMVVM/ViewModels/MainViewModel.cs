@@ -129,9 +129,9 @@ namespace DemoMVVM.ViewModels
             // Loading examples
             this.ExampleItems = new ObservableCollection<ExampleModel>();
             this.ExampleItems.Add(new ExampleModel("Basics controls", new BasicsControlsView()));
-            this.ExampleItems.Add(new ExampleModel("Pickers controls", new PickersView() { DataContext = new PickersViewModel() }));
             this.ExampleItems.Add(new ExampleModel("Lists controls", new ListsView() { DataContext = new ListsViewModel() }));
             this.ExampleItems.Add(new ExampleModel("Containers controls", new ContainersView() { DataContext = new ContainersViewModel() }));
+            this.ExampleItems.Add(new ExampleModel("Pickers controls", new PickersView() { DataContext = new PickersViewModel() }));
             this.ExampleItems.Add(new ExampleModel("ContributorsList control", new ContributorsView() { DataContext = new ContributorsViewModel() }));
             this.SelectedExample = this.ExampleItems[0];
         }

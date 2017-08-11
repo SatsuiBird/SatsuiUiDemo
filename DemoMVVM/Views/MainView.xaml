@@ -11,7 +11,7 @@
         xmlns:ctrls="clr-namespace:SatsuiUi.Controls;assembly=SatsuiUi"
         xmlns:local="clr-namespace:DemoMVVM.Views"
         mc:Ignorable="d"
-        Title="SatsuiUI - Demo - MVVM" Height="520" Width="500" WindowStartupLocation="CenterScreen" Style="{DynamicResource SatsuiWindow}">
+        Title="SatsuiUi - Demo - MVVM" Height="520" Width="500" WindowStartupLocation="CenterScreen" Style="{DynamicResource SatsuiWindow}">
     
     <!--
         Using DialogClient as the main container will show the background effect
