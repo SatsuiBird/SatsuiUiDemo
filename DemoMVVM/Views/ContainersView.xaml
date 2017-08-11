@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="DemoMVVM.Views.ContainersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrls="clr-namespace:SatsuiUi.Controls;assembly=SatsuiUi"
+             xmlns:local="clr-namespace:DemoMVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+
+            <!-- MyCustomSeparator is a custom template added to the SkinManager -->
+            <!-- See Bootstrap.cs for more informations -->
+            <Label Content="ContentContainer" Style="{DynamicResource MyCustomSeparator}" Margin="0,10,0,0"/>
+
+            <!-- ContentContainer with text -->
+            <ContentControl Style="{DynamicResource ContentContainer}" Margin="10" Padding="5">
+                <StackPanel>
+                    <TextBlock Text="Hey, im a simple container"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="We can put "/>
+                        <TextBlock FontWeight="Bold" Text="everything "/>
+                        <TextBlock Text="here !"/>
+                    </StackPanel>
+                </StackPanel>
+            </ContentControl>
+
+            <Label Content="GroupBox" Style="{DynamicResource MyCustomSeparator}" Margin="0,10,0,0"/>
+
+            <!-- HintGroupBox -->
+            <ctrls:HintGroupBox Margin="10"
+                                HeaderText="Im a HintGroupBox !" 
+                                HeaderImage="/DemoMVVM;component/Resources/Images/x16-right-arrow.png">
+                <StackPanel>
+                    <TextBlock Text="First content"/>
+
+                    <!-- HintGroupBoxSubHeader -->
+                    <ctrls:HintGroupBoxSubHeader
+                        HeaderText="Im a HintGroupBoxSubHeader !"
+                        HeaderImage="/DemoMVVM;component/Resources/Images/x16-right-arrow.png"/>
+
+                    <TextBlock Text="Second content"/>
+                </StackPanel>
+            </ctrls:HintGroupBox>
+
+            <!-- HintGroupBox with custom header -->
+            <ctrls:HintGroupBox Margin="10,0,10,10">
+                <ctrls:HintGroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Im a HintGroupBox with custom header !"/>
+                        <Button MinHeight="26" MinWidth="26" Margin="5,-5,0,-5"
+                                Style="{DynamicResource EmptyHelpButton}"
+                                Command="{Binding CustomHeaderCommand}" CommandParameter="add">
+                            <Image Source="/DemoMVVM;component/Resources/Images/x16-add.png" Height="16" Width="16"/>
+                        </Button>
+                        <Button MinHeight="26" MinWidth="26" Margin="5,-5,0,-5"
+                                Style="{DynamicResource EmptyHelpButton}"
+                                Command="{Binding CustomHeaderCommand}" CommandParameter="delete">
+                            <Image Source="/DemoMVVM;component/Resources/Images/x16-delete.png" Height="16" Width="16"/>
+                        </Button>
+                    </StackPanel>
+                </ctrls:HintGroupBox.Header>
+                <TextBlock Text="{Binding CustomHeaderResult}"/>
+            </ctrls:HintGroupBox>
+            
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

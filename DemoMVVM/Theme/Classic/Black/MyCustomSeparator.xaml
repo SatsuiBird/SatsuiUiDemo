@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DemoMVVM.Theme.Classic.Black">
+
+    <SolidColorBrush x:Key="MyCustomSeparator.Foreground" Color="#555"/>
+    
+</ResourceDictionary>

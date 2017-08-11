@@ -1,0 +1,54 @@
+﻿<!-- 
+    Don't forget to change the class of the window to SatsuiWindow
+    Also, You need to change it in the code behind of the view
+    Then add the Style SatsuiWindow to the window as dynamic resource
+-->
+<ctrls:SatsuiWindow x:Class="DemoMVVM.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrls="clr-namespace:SatsuiUi.Controls;assembly=SatsuiUi"
+        xmlns:local="clr-namespace:DemoMVVM.Views"
+        mc:Ignorable="d"
+        Title="SatsuiUI - Demo - MVVM" Height="520" Width="500" WindowStartupLocation="CenterScreen" Style="{DynamicResource SatsuiWindow}">
+    
+    <!--
+        Using DialogClient as the main container will show the background effect
+        and affect the color of TextBlock controls
+    -->
+    
+    <ctrls:DialogClient>
+        <Grid Margin="10,10,10,7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Skin selection -->
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Theme : "/>
+            <ctrls:HintComboBox Grid.Row="0" Grid.Column="1" Margin="5,0,5,5" 
+                                ItemsSource="{Binding SkinItems}" SelectedItem="{Binding SelectedSkin}"/>
+            <Button Grid.Row="0" Grid.Column="2" FontWeight="Bold" Content="Update" Margin="0,0,0,5"
+                    Command="{Binding UpdateSkinCommand}"/>
+                
+            <!-- Example selection -->
+            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Example :"/>
+            <ctrls:HintComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,0,0" Hint="Select an example in the list"
+                                ItemsSource="{Binding ExampleItems}" SelectedItem="{Binding SelectedExample}"/>
+            
+            <!-- Controls examples -->
+            <ctrls:HintGroupBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0" Padding="0"
+                                HeaderText="{Binding ExampleTitle}">
+                <ContentControl Content="{Binding ExampleContent}"/>
+            </ctrls:HintGroupBox>
+
+        </Grid>
+    </ctrls:DialogClient>
+</ctrls:SatsuiWindow>

@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="DemoMVVM.Views.BasicsControlsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrls="clr-namespace:SatsuiUi.Controls;assembly=SatsuiUi"
+             xmlns:local="clr-namespace:DemoMVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+        <StackPanel>
+
+            <!-- MyCustomSeparator is a custom template added to the SkinManager -->
+            <!-- See Bootstrap.cs for more informations -->
+            <Label Content="Button" Style="{DynamicResource MyCustomSeparator}" Margin="0,10,0,0"/>
+
+            <!-- Button -->
+            <Button Content="Im a Button !" Margin="10"/>
+
+            <!-- Button with custom content -->
+            <Button Margin="10,0,10,10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="16" Height="16" Margin="0,0,5,0" Source="/DemoMVVM;component/Resources/Images/x16-right-arrow.png"/>
+                    <TextBlock Text="Im a Button with "/>
+                    <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="custom content !"/>
+                </StackPanel>
+            </Button>
+
+            <Label Content="HintTextBox" Style="{DynamicResource MyCustomSeparator}"/>
+
+            <!-- HintTextBox -->
+            <!-- All the text is selected automatically when the control get the focus -->
+            <ctrls:HintTextBox Text="Im a HintTextBox !" Margin="10"/>
+            <ctrls:HintTextBox Text="" Hint="This message is visible when no text is entered" Margin="10,0,10,10"/>
+            <ctrls:HintTextBox Text="You can show an indication of the format" FormatText="(my format)" Margin="10,0,10,10"/>
+
+            <Label Content="HintComboBox" Style="{DynamicResource MyCustomSeparator}"/>
+
+             <!-- HintComboBox -->
+            <ctrls:HintComboBox Hint="This message is visible when no element is selected" Margin="10">
+                <ComboBoxItem Content="Im an item !"/>
+                <ComboBoxItem HorizontalContentAlignment="Stretch">
+                    <ComboBoxItem.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="16" Height="16" Margin="0,0,5,0" Source="/DemoMVVM;component/Resources/Images/x16-right-arrow.png"/>
+                            <TextBlock Text="Im a ComboBoxItem with "/>
+                            <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="custom content !"/>
+                        </StackPanel>
+                    </ComboBoxItem.Content>
+                </ComboBoxItem>
+            </ctrls:HintComboBox>
+
+            <Label Content="CheckBox" Style="{DynamicResource MyCustomSeparator}"/>
+
+            <!-- CheckBox -->
+            <CheckBox Content="Im a CheckBox !" Margin="10"/>
+
+            <!-- CheckBox with custom content -->
+            <CheckBox Margin="10,0,10,10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="16" Height="16" Margin="0,0,5,0" Source="/DemoMVVM;component/Resources/Images/x16-right-arrow.png"/>
+                    <TextBlock Text="Im a CheckBox with "/>
+                    <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="custom content !"/>
+                </StackPanel>
+            </CheckBox>
+
+            <Label Content="ProgressBar" Style="{DynamicResource MyCustomSeparator}"/>
+
+            <!-- ProgressBar -->
+            <ProgressBar Maximum="100" Value="50" Margin="10"/>
+
+            <!-- ProgressBar with Indeterminate style -->
+            <ProgressBar IsIndeterminate="True" Margin="10,0,10,10"/>
+
+            <Label Content="Slider" Style="{DynamicResource MyCustomSeparator}"/>
+
+            <!-- Slider -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Slider Margin="10" TickPlacement="TopLeft"/>
+                    <Slider Margin="10,0,10,10" IsEnabled="False"/>
+                    <Slider Margin="10,0,10,10" TickPlacement="BottomRight"/>
+                </StackPanel>
+                <Slider Grid.Column="1" Orientation="Vertical" TickPlacement="Both" Margin="0,0,10,10"/>
+            </Grid>
+            
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
