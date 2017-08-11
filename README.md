@@ -30,13 +30,29 @@ Classic (1) : White (1) / Black (2)
 
 You can add your owns controls to a skin using the function AddResource :
 
+```C#
 	// Add a custom template to the Crystal skin 
     manager.addResource(manager.Skins[0], "/YourProject;component/Path/YourTemplateResource.xaml");
 	
 	// Add colors definitions for the Light color of the Crystal skin
-	SkinManager.AddResource(manager.Skins[0], 1, "/YourProject;component/Path/YourFirstColorsResource.xaml");
+	manager.AddResource(manager.Skins[0], 1, "/YourProject;component/Path/YourFirstColorsResource.xaml");
 
 	// Add colors definitions for the Dark color of the Crystal skin
-	SkinManager.AddResource(manager.Skins[0], 1, "/YourProject;component/Path/YourSecondColorsResource.xaml");
+	manager.AddResource(manager.Skins[0], 1, "/YourProject;component/Path/YourSecondColorsResource.xaml");
+```
 
 There is an example in the demo, feel free to ask if you got any problem.
+
+# My others projects #
+
+**SatsuiLocalization**  
+Easy localization of .NET applications  
+[https://github.com/SatsuiBird/SatsuiLocalizationDemo](https://github.com/SatsuiBird/SatsuiLocalizationDemo "SatsuiLocalizationDemo")
+
+**SatsuiMemory**  
+Read and edit easily applications memory  
+[https://github.com/SatsuiBird/SatsuiMemoryDemo](https://github.com/SatsuiBird/SatsuiMemoryDemo "SatsuiMemoryDemo")
+
+**SatsuiOverlay**  
+Create customizable HTTP widgets  
+[https://github.com/SatsuiBird/SatsuiOverlayDemo](https://github.com/SatsuiBird/SatsuiOverlayDemo "SatsuiOverlayDemo")
